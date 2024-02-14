@@ -1,1 +1,15 @@
 @import 'core/reset';
+@import 'page/header';
+@import 'page/main';
+@import 'page/footer';
+
+.page {
+  background-color: #550901;
+}
+
+@media (min-width: 768px) {
+  .characters-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

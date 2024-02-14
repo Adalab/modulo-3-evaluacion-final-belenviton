@@ -1,52 +1,27 @@
 import '../scss/App.scss';
+import CharactersList from './CharacterList';
+import Filters from './Filters';
 
 function App() {
   return (
-    <div>
+    <div className="page">
       <header className="header">
-        <img
-          className="title-image"
-          src="../public/logo-harry.png"
-          alt="logo harry potter"
-        />
-        <form className="form">
-          <label htmlFor="character">
-            Busca por personaje
-            <input className="input-character" type="text" id="character" />
-          </label>
-          <label htmlFor="house">
-            Selecciona la casa
-            <select className="select-house" name="house" id="house">
-              <option value="All Characters">All Characters</option>
-              <option value="Gryffindor">Gryffindor</option>
-              <option value="Hufflepuff">Hufflepuff</option>
-              <option value="Ravenclaw">Ravenclaw</option>
-              <option value="Slytherin">Slytherin</option>
-            </select>
-          </label>
-        </form>
+        <div className="principal-title">
+          <img
+            className="title-image"
+            src="../public/logo-harry.png"
+            alt="logo harry potter"
+          />
+        </div>
       </header>
       <main className="page-main">
-        <ul>
-          <li className="card">
-            <img className="card-image" src="" alt="Photo" />
-            <p className="card-name">Name</p>
-            <p className="card-species">Species</p>
-          </li>
-          <li>
-            <img src="" alt="Photo" />
-            <p>Name</p>
-            <p>Especie</p>
-          </li>
-          <li>
-            <img src="" alt="Photo" />
-            <p>Name</p>
-            <p>Especie</p>
-          </li>
-        </ul>
+        <Filters></Filters>
+        <CharactersList></CharactersList>
       </main>
       <footer className="footer">
-        <a href="https://github.com/belenviton">belenviton</a>
+        <a className="link" href="https://github.com/belenviton">
+          BELENVITON
+        </a>
       </footer>
     </div>
   );

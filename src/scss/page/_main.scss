@@ -1,0 +1,42 @@
+.page-main {
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-label {
+      font-size: 2rem;
+      color: #fff3bc;
+      margin-bottom: 2rem;
+      .input-character {
+        font-size: 1.8rem;
+        background-color: #fff7ce;
+        margin-left: 2rem;
+      }
+      .select-house {
+        font-size: 1.8rem;
+
+        background-color: #fff7ce;
+        margin-left: 2rem;
+      }
+    }
+  }
+  .characters-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #b66f08;
+      &-name {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      &-species {
+        font-size: 2rem;
+      }
+    }
+  }
+}

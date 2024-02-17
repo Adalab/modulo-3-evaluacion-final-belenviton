@@ -5,6 +5,7 @@ function CharactersCard() {
         className="card-image"
         src="./src/images/harry-potter-favic.webp"
         alt="Photo"
+        title="photoCharacter"
       />
       <p className="card-name">Name</p>
       <p className="card-species">Species</p>

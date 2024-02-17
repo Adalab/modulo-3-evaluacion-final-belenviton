@@ -9,7 +9,7 @@ function App() {
         <div className="principal-title">
           <img
             className="title-image"
-            src="../public/logo-harry.png"
+            src="../src/images/logo-harry.png"
             alt="logo harry potter"
           />
         </div>

@@ -3,7 +3,7 @@ function CharactersCard() {
     <li className="card">
       <img
         className="card-image"
-        src="../public/harry-potter-favic.webp"
+        src="./src/images/harry-potter-favic.webp"
         alt="Photo"
       />
       <p className="card-name">Name</p>

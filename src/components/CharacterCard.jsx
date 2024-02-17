@@ -1,16 +1,23 @@
-function CharactersCard() {
-  return (
-    <li className="card">
-      <img
-        className="card-image"
-        src="./src/images/harry-potter-favic.webp"
-        alt="Photo"
-        title="photoCharacter"
-      />
-      <p className="card-name">Name</p>
-      <p className="card-species">Species</p>
-    </li>
-  );
+import PropTypes from 'prop-types';
+import imageAnonimous from '../images/personaje-desconocido.jpg';
+
+function CharacterCard({ character }) {
+  if (character.image ? character.image : { imageAnonimous })
+    return (
+      <>
+        <img
+          className="card-image"
+          src={character.image}
+          alt={character.name}
+          title={character.name}
+        />
+        <p className="card-name">{character.name}</p>
+        <p className="card-species">{character.species}</p>
+      </>
+    );
 }
 
-export default CharactersCard;
+CharacterCard.propTypes = {
+  character: PropTypes.object.isRequired,
+};
+export default CharacterCard;

@@ -8,15 +8,11 @@ import Logo from '../images/logo-harry.png';
 import { fetchCharacters } from '../services/fetch';
 
 function App() {
-  const [characters, setCharacters] = useState({
-    image: '',
-    name: '',
-    species: '',
-  });
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetchCharacters().then((responseData) => {
-      setCharacters(responseData);
+    fetchCharacters().then((responseCharacters) => {
+      setCharacters(responseCharacters);
     });
   }, []);
   return (
@@ -28,7 +24,7 @@ function App() {
       </header>
       <main className="page-main">
         <Filters></Filters>
-        <CharactersList></CharactersList>
+        <CharactersList characters={characters}></CharactersList>
       </main>
       <footer className="footer">
         <a className="link" href="https://github.com/belenviton">
@@ -39,7 +35,7 @@ function App() {
   );
 }
 App.propTypes = {
-  data: PropTypes.object.isRequired,
+  characters: PropTypes.object.isRequired,
 };
 
 export default App;

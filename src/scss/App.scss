@@ -8,8 +8,14 @@
 }
 
 @media (min-width: 768px) {
-  .characters-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  .page-main {
+    .characters-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      .card {
+        margin: 2rem auto;
+      }
+    }
   }
 }

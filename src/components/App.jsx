@@ -15,6 +15,8 @@ function App() {
 
   const [inputCharacter, setInputCharacter] = useState('');
 
+  const [houseCharacter, setHouseCharacter] = useState('Gryffindor');
+
   //Carga página
   useEffect(() => {
     fetchCharacters().then((responseCharacters) => {
@@ -28,21 +30,24 @@ function App() {
     setInputCharacter(filterValue);
   };
 
+  const handleFilterHouse = (filterValue) => {
+    setHouseCharacter(filterValue);
+  };
   //Otras variables
 
   const searchDetail = (nameCharacter) => {
-    const oneCharacter = characters.find((character) => {
+    characters.find((character) => {
       const replaceName = character.name; /* .replace(/ /g, '-'); */
-
       replaceName.toLowerCase() === nameCharacter.toLowerCase();
     });
-
-    return oneCharacter;
   };
 
   const filteredCharacters = characters.filter((character) =>
     character.name.toLowerCase().includes(inputCharacter.toLowerCase())
   );
+  const filteredHouse = characters.filter((character) => {
+    character.house.toLowerCase() === houseCharacter.toLowerCase();
+  });
 
   return (
     <div className="page">
@@ -61,8 +66,12 @@ function App() {
                 <Filters
                   filterCharacter={inputCharacter}
                   handleFilterCharacter={handleFilterCharacter}
+                  filterHouse={houseCharacter}
+                  handleFilterHouse={handleFilterHouse}
                 ></Filters>{' '}
-                <CharactersList characters={filteredCharacters} />{' '}
+                <CharactersList
+                  characters={filteredCharacters /* && filteredHouse */}
+                />{' '}
               </>
             }
           />

@@ -10,13 +10,25 @@ import { Routes, Route } from 'react-router-dom';
 import CharacterDetail from './CharacterDetail';
 
 function App() {
+  //Variable estado
   const [characters, setCharacters] = useState([]);
 
+  const [inputCharacter, setInputCharacter] = useState('');
+
+  //Carga página
   useEffect(() => {
     fetchCharacters().then((responseCharacters) => {
       setCharacters(responseCharacters);
     });
   }, []);
+
+  //funiones eventos
+
+  const handleFilterCharacter = (filterValue) => {
+    setInputCharacter(filterValue);
+  };
+
+  //Otras variables
 
   const searchDetail = (nameCharacter) => {
     const oneCharacter = characters.find((character) => {
@@ -27,6 +39,10 @@ function App() {
 
     return oneCharacter;
   };
+
+  const filteredCharacters = characters.filter((character) =>
+    character.name.toLowerCase().includes(inputCharacter.toLowerCase())
+  );
 
   return (
     <div className="page">
@@ -42,7 +58,11 @@ function App() {
             element={
               <>
                 {' '}
-                <Filters></Filters> <CharactersList characters={characters} />{' '}
+                <Filters
+                  filterCharacter={inputCharacter}
+                  handleFilterCharacter={handleFilterCharacter}
+                ></Filters>{' '}
+                <CharactersList characters={filteredCharacters} />{' '}
               </>
             }
           />
@@ -62,6 +82,7 @@ function App() {
 }
 App.propTypes = {
   characters: PropTypes.object.isRequired,
+  inputCharacter: PropTypes.func.isRequired,
 };
 
 export default App;

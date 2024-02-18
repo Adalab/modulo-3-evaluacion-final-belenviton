@@ -1,17 +1,30 @@
-function CharacterDetail() {
+import { useParams } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+
+function CharacterDetail({ searchDetail }) {
+  const { figure } = useParams();
+
+  console.log(figure);
+  const oneFigure = searchDetail(figure); /* .replace(/-/g, ' ') */
+
+  //const { name, species, status, gender, house, alternate_names } = oneFigure;
   return (
-    <div>
-      <img src="../public/harry-potter-favic.webp" alt="" />
+    <div className="individualCard">
+      <img src="../public/harry-potter-favic.webp" alt={oneFigure.name} />
       <ul className="detail-list">
-        <li className="card-details">Name</li>
-        <li className="card-details">Status</li>
-        <li className="card-details">Species</li>
-        <li className="card-details">Gender</li>
-        <li className="card-details">House</li>
-        <li className="card-details">Alternate names</li>
+        <li className="card-details">{oneFigure.name} </li>
+        <li className="card-details">{oneFigure.species}</li>
+        <li className="card-details">{oneFigure.status}</li>
+        <li className="card-details">{oneFigure.gender}</li>
+        <li className="card-details">{oneFigure.house}</li>
+        <li className="card-details">{oneFigure.alternate_names}</li>
       </ul>
     </div>
   );
 }
+
+CharacterDetail.propTypes = {
+  searchDetail: PropTypes.func.isRequired,
+};
 
 export default CharacterDetail;

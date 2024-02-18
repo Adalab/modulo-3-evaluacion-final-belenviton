@@ -6,6 +6,8 @@ import CharactersList from './CharacterList';
 import Filters from './Filters';
 import Logo from '../images/logo-harry.png';
 import { fetchCharacters } from '../services/fetch';
+import { Routes, Route } from 'react-router-dom';
+import CharacterDetail from './CharacterDetail';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -15,6 +17,17 @@ function App() {
       setCharacters(responseCharacters);
     });
   }, []);
+
+  const searchDetail = (nameCharacter) => {
+    const oneCharacter = characters.find((character) => {
+      const replaceName = character.name; /* .replace(/ /g, '-'); */
+
+      replaceName.toLowerCase() === nameCharacter.toLowerCase();
+    });
+
+    return oneCharacter;
+  };
+
   return (
     <div className="page">
       <header className="header">
@@ -24,7 +37,16 @@ function App() {
       </header>
       <main className="page-main">
         <Filters></Filters>
-        <CharactersList characters={characters}></CharactersList>
+        <Routes>
+          <Route
+            path="/"
+            element={<CharactersList characters={characters} />}
+          />
+          <Route
+            path="/:figure"
+            element={<CharacterDetail searchDetail={searchDetail} />}
+          />
+        </Routes>
       </main>
       <footer className="footer">
         <a className="link" href="https://github.com/belenviton">

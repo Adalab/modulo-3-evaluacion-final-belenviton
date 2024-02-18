@@ -36,11 +36,15 @@ function App() {
         </div>
       </header>
       <main className="page-main">
-        <Filters></Filters>
         <Routes>
           <Route
             path="/"
-            element={<CharactersList characters={characters} />}
+            element={
+              <>
+                {' '}
+                <Filters></Filters> <CharactersList characters={characters} />{' '}
+              </>
+            }
           />
           <Route
             path="/:figure"

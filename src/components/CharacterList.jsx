@@ -15,5 +15,6 @@ function CharactersList({ characters }) {
 
 CharactersList.propTypes = {
   characters: PropTypes.object.isRequired,
+  house: PropTypes.object.isRequired,
 };
 export default CharactersList;

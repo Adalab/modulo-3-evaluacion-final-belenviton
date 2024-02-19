@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import escoba from '../images/escoba.gif';
 
 function CharacterCard({ character }) {
-  const replaceName = character.name; /* .replace(/ /g, '-'); */
+  const replaceName = character.name.replace(/ /g, '-');
   return (
     <Link className="link" to={replaceName}>
       <img

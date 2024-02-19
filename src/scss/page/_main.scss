@@ -74,14 +74,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    .card-details {
-      margin-left: 5rem;
-      font-size: 3rem;
-      color: #b66f08;
+    border: 0.5rem solid #b66f08;
+    .card-image {
+      width: 20rem;
+      height: 25rem;
+    }
+    .detail-list {
+      margin-right: 1rem;
+      .card-details {
+        margin-left: 5rem;
+        font-size: 3rem;
+        color: #b66f08;
+      }
     }
   }
   .linkDetail {
+    margin-top: 2rem;
     color: black;
     font-size: 2rem;
   }

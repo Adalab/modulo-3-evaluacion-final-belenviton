@@ -33,22 +33,27 @@ function App() {
   const handleFilterHouse = (filterValue) => {
     setHouseCharacter(filterValue);
   };
+
   //Otras variables
 
   const searchDetail = (nameCharacter) => {
-    characters.find((character) => {
-      const replaceName = character.name; /* .replace(/ /g, '-'); */
-      replaceName.toLowerCase() === nameCharacter.toLowerCase();
-    });
+    return characters.find(
+      (character) =>
+        character.name.toLowerCase() === nameCharacter.toLowerCase()
+    );
   };
 
-  const filteredCharacters = characters.filter((character) =>
+  const filteredHouse = characters.filter((character) => {
+    if (houseCharacter === 'all') {
+      return true;
+    } else {
+      return character.house.toLowerCase() === houseCharacter.toLowerCase();
+    }
+  });
+
+  const filteredCharacters = filteredHouse.filter((character) =>
     character.name.toLowerCase().includes(inputCharacter.toLowerCase())
   );
-  /* const filteredHouse = characters.filter((character) => {
-    character.house.toLowerCase() === houseCharacter.toLowerCase();
-  }); */
-
   return (
     <div className="page">
       <header className="header">
@@ -65,14 +70,11 @@ function App() {
                 {' '}
                 <Filters
                   filterCharacter={inputCharacter}
-                  handleFilterCharacter={handleFilterCharacter}
                   filterHouse={houseCharacter}
                   handleFilterHouse={handleFilterHouse}
+                  handleFilterCharacter={handleFilterCharacter}
                 ></Filters>{' '}
-                <CharactersList
-                  characters={filteredCharacters}
-                  //filteredHouse={filteredHouse}
-                />{' '}
+                <CharactersList characters={filteredCharacters} />{' '}
               </>
             }
           />

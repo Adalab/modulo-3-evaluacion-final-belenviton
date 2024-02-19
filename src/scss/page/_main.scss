@@ -27,14 +27,15 @@
     margin: 5rem auto;
 
     .card {
-      height: 30rem;
-      width: 20rem;
+      height: 32rem;
+      width: 25rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: #b66f08;
       margin: 2rem 2rem;
+      box-shadow: 0rem 0rem 10rem #fff3bc;
 
       &-image {
         width: 20rem;

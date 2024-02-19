@@ -45,9 +45,9 @@ function App() {
   const filteredCharacters = characters.filter((character) =>
     character.name.toLowerCase().includes(inputCharacter.toLowerCase())
   );
-  const filteredHouse = characters.filter((character) => {
+  /* const filteredHouse = characters.filter((character) => {
     character.house.toLowerCase() === houseCharacter.toLowerCase();
-  });
+  }); */
 
   return (
     <div className="page">
@@ -70,7 +70,8 @@ function App() {
                   handleFilterHouse={handleFilterHouse}
                 ></Filters>{' '}
                 <CharactersList
-                  characters={filteredCharacters /* && filteredHouse */}
+                  characters={filteredCharacters}
+                  //filteredHouse={filteredHouse}
                 />{' '}
               </>
             }

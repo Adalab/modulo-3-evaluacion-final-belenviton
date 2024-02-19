@@ -21,15 +21,24 @@ function CharacterDetail({ searchDetail }) {
         />
         <ul className="detail-list">
           <li className="card-details">
-            Species: {oneFigure.species.toUpperCase()}
+            Species:{' '}
+            <spam className="results">{oneFigure.species.toUpperCase()}</spam>
           </li>
           <li className="card-details">
-            Status: {oneFigure.alive === true ? 'Alive' : 'Dead'}
+            Status:{' '}
+            <spam className="results">
+              {oneFigure.alive === true ? 'Alive' : 'Dead'}
+            </spam>
           </li>
-          <li className="card-details">Gender: {oneFigure.gender}</li>
-          <li className="card-details">House: {oneFigure.house}</li>
           <li className="card-details">
-            Alternate-names: {alternateNames || 'Unknown'}
+            Gender: <spam className="results">{oneFigure.gender}</spam>
+          </li>
+          <li className="card-details">
+            House: <spam className="results">{oneFigure.house}</spam>
+          </li>
+          <li className="card-details">
+            Alternate-names:{' '}
+            <spam className="results">{alternateNames || 'Unknown'}</spam>
           </li>
         </ul>
       </div>

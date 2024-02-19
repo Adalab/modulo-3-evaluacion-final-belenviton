@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
+import escoba from '../images/escoba.gif';
 
 function CharacterDetail({ searchDetail }) {
   const { figure } = useParams();
@@ -15,7 +16,7 @@ function CharacterDetail({ searchDetail }) {
       <div className="individualCard">
         <img
           className="card-image"
-          src={oneFigure.image}
+          src={oneFigure.image || escoba}
           alt={oneFigure.name}
         />
         <ul className="detail-list">
